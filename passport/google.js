@@ -16,7 +16,7 @@ passport.use(new GoogleStrategy({
   function(request, accessToken, refreshToken, profile, done) {
         process.nextTick(function () {
 
-          User.findOne({ 'id' : profile.id }, function(err, user) {
+          User.findOne({ 'google.id' : profile.id }, function(err, user) {
                 if (err)
                   return done(err);
                 if (user) {
